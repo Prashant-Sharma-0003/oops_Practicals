@@ -1,40 +1,34 @@
-class Employee {
-    private String employeeName;
-    private double salary;
-    private static int employeeCount = 0;
-
-    Employee() {
-        this("Unknown", 0.0);
-    }
-
-    Employee(String employeeName, double salary) {
-        this.employeeName = employeeName;
-        this.salary = salary;
-        employeeCount++;
-    }
-
-    void displayDetails() {
-        System.out.println("Employee: " + employeeName);
-        System.out.printf("Salary: $%.2f%n", salary);
-    }
-
-    static void displayEmployeeCount() {
-        System.out.println("Total employees created: " + employeeCount);
-    }
+class Employee { String name; double salary; 
+static int employeeCount = 0; 
+Employee() { 
+    this("Default Employee", 0.0); 
+} 
+Employee(String name, double salary) { 
+    this.name = name; 
+    this.salary = salary; 
+} 
+void displayDetails() { 
+    System.out.println("Employee Name: " + name); 
+    System.out.println("Salary: ₹" + salary); 
+    System.out.println("-----------------------------------"); 
+} 
+static void displayEmployeeCount() { 
+    System.out.println("Total Employees Created: " + employeeCount); 
 }
-
-public class Pritacal9 {
-    public static void main(String[] args) {
-        Employee first = new Employee();
-        Employee second = new Employee("Maya", 52000);
-        Employee third = new Employee("Noah", 61000);
-
-        System.out.println("Employee details:");
-        first.displayDetails();
-        second.displayDetails();
-        third.displayDetails();
-
-        System.out.println();
-        Employee.displayEmployeeCount();
-    }
-}
+} 
+public class Main { public static void main(String[] args) 
+    System.out.println("--- Creating Objects ---"); 
+    Employee emp1 = new Employee();                             
+    emp1.displayDetails(); 
+    Employee.displayEmployeeCount(); 
+    System.out.println(); 
+    Employee emp2 = new Employee("Aarav Sharma", 50000.0);      
+    emp2.displayDetails(); 
+    Employee.displayEmployeeCount(); 
+    System.out.println(); 
+    Employee emp3 = new Employee("Priya Verma", 75000.0);       
+    emp3.displayDetails(); 
+    System.out.println("--- Final Summary ---"); 
+    Employee.displayEmployeeCount(); 
+} 
+                  }
