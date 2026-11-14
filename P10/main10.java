@@ -1,69 +1,68 @@
-class BankAccount {
-    private final String accountHolder;
-    private final String accountNumber;
-    private double balance;
+class BankAccount { 
+public BankAccount(String accountHolder, String accountNumber, double initialBalance) { 
+    this.accountHolder = accountHolder; 
+    this.accountNumber = accountNumber; 
+    if (initialBalance >= 0)  
+{ 
+    this. Balance = initialBalance; 
+} else { 
+        this.balance = 0.0; 
+        System.out.println("Initial balance cannot be negative. Set to ₹0.0"); 
+    } 
+} 
+ public String getAccountHolder() { 
+    return accountHolder; 
+} 
+ public String getAccountNumber() { 
+    return accountNumber; 
+} 
+ public double getBalance() { 
+    return balance; 
+} 
+public void deposit(double amount) { 
+    if (amount > 0) { 
+        balance += amount; 
+        System.out.println("Successfully deposited: ₹" + amount); 
+    } else { 
+        System.out.println("Deposit failed: Negative or zero deposit amount is rejected[span_3](start_span)[span_3](end_span)!"); 
+    } 
+} 
+public void withdraw(double amount) { 
+    if (amount <= 0) { 
+        System.out.println("Withdrawal failed: Zero or negative withdrawals are rejected[span_5](start_span)[span_5](end_span)!"); 
+    } else if (amount > balance) { 
+        System.out.println("Withdrawal failed: Amount greater than the available balance is rejected[span_6](start_span)[span_6](end_span)!"); 
+    } else { 
+        balance -= amount; 
+        System.out.println("Successfully withdrew: ₹" + amount); 
+    } 
+} 
+public void displayAccountInfo() { 
+    System.out.println("Account Holder: " + accountHolder); 
+    System.out.println("Account Number: " + accountNumber); 
+    System.out.println("Current Balance: ₹" + balance); 
+    System.out.println("-----------------------------------"); 
+} 
+} 
+public class Main { public static void main(String[] args) 
+   System.out.println("--- Initial Account Details ---"); 
+    myAccount.displayAccountInfo(); 
+System.out.println("--- Testing Valid Transactions ---"); 
+    myAccount.deposit(5000.0); 
+    myAccount.withdraw(3000.0); 
+    myAccount.displayAccountInfo(); 
+    System.out.println("--- Testing Invalid Transactions ---"); 
+    myAccount.deposit(-1500.0); 
+    myAccount.withdraw(0); 
+    myAccount.withdraw(50000.0); 
+ 
+    System.out.println("\n--- Final Account Details ---"); 
+    myAccount.displayAccountInfo(); 
+} 
+  
 
-    BankAccount(String accountHolder, String accountNumber, double initialBalance) {
-        if (initialBalance < 0) {
-            throw new IllegalArgumentException("Initial balance cannot be negative.");
-        }
-        this.accountHolder = accountHolder;
-        this.accountNumber = accountNumber;
-        this.balance = initialBalance;
-    }
+} 
 
-    String getAccountHolder() {
-        return accountHolder;
-    }
+ 
 
-    String getAccountNumber() {
-        return accountNumber;
-    }
-
-    double getBalance() {
-        return balance;
-    }
-
-    boolean deposit(double amount) {
-        if (amount < 0) {
-            System.out.println("Deposit rejected: amount cannot be negative.");
-            return false;
-        }
-        balance += amount;
-        System.out.printf("Deposit successful: $%.2f%n", amount);
-        return true;
-    }
-
-    boolean withdraw(double amount) {
-        if (amount <= 0) {
-            System.out.println("Withdrawal rejected: amount must be greater than zero.");
-            return false;
-        }
-        if (amount > balance) {
-            System.out.println("Withdrawal rejected: insufficient balance.");
-            return false;
-        }
-        balance -= amount;
-        System.out.printf("Withdrawal successful: $%.2f%n", amount);
-        return true;
-    }
-}
-
-public class Pritical10 {
-    public static void main(String[] args) {
-        BankAccount account = new BankAccount("Jordan Lee", "AC1001", 500.00);
-
-        System.out.println("Account holder: " + account.getAccountHolder());
-        System.out.println("Account number: " + account.getAccountNumber());
-        System.out.printf("Opening balance: $%.2f%n%n", account.getBalance());
-
-        account.deposit(200.00);
-        account.withdraw(100.00);
-        account.deposit(-50.00);
-        account.withdraw(0.00);
-        account.withdraw(-25.00);
-        account.withdraw(1000.00);
-
-        System.out.printf("%nUpdated balance: $%.2f%n", account.getBalance());
-    }
-}
+ 
