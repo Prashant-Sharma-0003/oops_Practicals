@@ -1,23 +1,31 @@
-class SampleObject {
-    SampleObject() {
-        System.out.println("SampleObject constructed.");
-    }
+class Demo { // Constructor Demo() { System.out.println("Object is constructed."); } 
 
-    void use() {
-        System.out.println("SampleObject is being used.");
-    }
-}
+void display() { 
+    System.out.println("Object is being used."); 
+} 
+  
 
-public class Pratical7 {
-    public static void main(String[] args) {
-        SampleObject object = new SampleObject();
-        object.use();
+} 
 
-        object = null;
-        System.out.println("The reference was removed; the object is eligible for garbage collection.");
+public class Main { public static void main(String[] args) { 
 
-        System.out.println("Requesting garbage collection...");
-        System.gc();
-        System.out.println("GC requested. The JVM may collect the object later, or may not collect it now.");
-    }
-}
+   // Create an object 
+    Demo obj = new Demo(); 
+ 
+    // Use the object 
+    obj.display(); 
+ 
+    // Remove the reachable reference 
+    obj = null; 
+ 
+    System.out.println("Reference removed. Object is now eligible for garbage collection."); 
+ 
+    // Request garbage collection 
+    System.gc(); 
+ 
+    System.out.println("Garbage collection requested."); 
+    System.out.println("GC may or may not occur immediately."); 
+} 
+  
+
+} 
