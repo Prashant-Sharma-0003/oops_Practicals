@@ -1,55 +1,72 @@
-class Book {
-    String title;
-    String author;
-    double price;
+class Book { 
 
-    Book() {
-        title = "Unknown";
-        author = "Unknown";
-        price = 0.0;
-    }
+String title; 
+String author; 
+double price; 
+ 
+ 
+Book() { 
+    title = "Unknown"; 
+    author = "Unknown"; 
+    price = 0.0; 
+} 
+ 
+ 
+Book(String title, String author, double price) { 
+    this.title = title; 
+    this.author = author; 
+    this.price = price; 
+} 
+ 
+ 
+Book(Book other) { 
+    this.title = other.title; 
+    this.author = other.author; 
+    this.price = other.price; 
+} 
+ 
+ 
+void display() { 
+    System.out.println("Title  : " + title); 
+    System.out.println("Author : " + author); 
+    System.out.println("Price  : " + price); 
+    System.out.println(); 
+} 
+  
 
-    Book(String title, String author, double price) {
-        this.title = title;
-        this.author = author;
-        this.price = price;
-    }
+} 
 
-    Book(Book other) {
-        this.title = other.title;
-        this.author = other.author;
-        this.price = other.price;
-    }
+public class Main { public static void main(String[] args) { 
 
-    void display() {
-        System.out.println("Title: " + title);
-        System.out.println("Author: " + author);
-        System.out.printf("Price: $%.2f%n", price);
-    }
-}
+   Book book1 = new Book(); 
+ 
+     
+    Book book2 = new Book("Java Programming", "James Gosling", 599.0); 
+ 
+   
+    Book book3 = new Book(book2); 
+ 
+    System.out.println("Book 1 (No-Argument Constructor):"); 
+    book1.display(); 
+ 
+    System.out.println("Book 2 (Parameterized Constructor):"); 
+    book2.display(); 
+ 
+    System.out.println("Book 3 (Copy Constructor):"); 
+    book3.display(); 
+ 
+     
+    book3.title = "Advanced Java Programming"; 
+    book3.price = 799.0; 
+ 
+    System.out.println("After modifying Book 3:"); 
+ 
+    System.out.println("Original Book 2:"); 
+    book2.display(); 
+ 
+    System.out.println("Copied Book 3:"); 
+    book3.display(); 
+} 
+  
 
-public class Pratical6 {
-    public static void main(String[] args) {
-        Book defaultBook = new Book();
-        Book originalBook = new Book("The Hobbit", "J.R.R. Tolkien", 15.99);
-        Book copiedBook = new Book(originalBook);
-
-        System.out.println("No-argument constructor:");
-        defaultBook.display();
-
-        System.out.println("\nParameterized constructor:");
-        originalBook.display();
-
-        System.out.println("\nCopy constructor (before modification):");
-        copiedBook.display();
-
-        copiedBook.price = 19.99;
-        copiedBook.title = "The Hobbit: Illustrated Edition";
-
-        System.out.println("\nCopied object (after modification):");
-        copiedBook.display();
-
-        System.out.println("\nOriginal object (unchanged):");
-        originalBook.display();
-    }
-}
+} 
