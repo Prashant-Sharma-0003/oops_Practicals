@@ -1,35 +1,25 @@
-interface Printable {
-    void printDocument();
-}
+interface Printable { void print(); } 
 
-interface Scannable {
-    void scanDocument();
-}
+interface Scannable { void scan(); } 
 
-class Machine {
-    void powerOn() {
-        System.out.println("Machine is powered on.");
-    }
-}
+class AllInOnePrinter implements Printable, Scannable { 
 
-class AllInOnePrinter extends Machine implements Printable, Scannable {
-    @Override
-    public void printDocument() {
-        System.out.println("Printing document...");
-    }
+public void print() { 
+    System.out.println("Printing document..."); 
+} 
+ 
+public void scan() { 
+    System.out.println("Scanning document..."); 
+} 
+  
 
-    @Override
-    public void scanDocument() {
-        System.out.println("Scanning document...");
-    }
-}
+} 
 
-public class Pritical3 {
-    public static void main(String[] args) {
-        AllInOnePrinter printer = new AllInOnePrinter();
+public class Main { public static void main(String[] args) { AllInOnePrinter printer = new AllInOnePrinter(); 
 
-        printer.powerOn();
-        printer.printDocument();
-        printer.scanDocument();
-    }
-}
+   printer.print(); 
+    printer.scan(); 
+} 
+  
+
+} 
